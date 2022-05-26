@@ -91,7 +91,7 @@ module.exports = {
         );
       },
       network_id: 97,
-      confirmations: 10,
+      confirmations: 1,
       timeoutBlocks: 50000,
       networkCheckTimeout: 1000000,
       skipDryRun: true,

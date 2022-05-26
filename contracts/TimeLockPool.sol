@@ -17,6 +17,7 @@ contract TimeLockPool is BasePool, ReentrancyGuard {
     uint256 public constant MIN_LOCK_DURATION = 10 minutes;
     uint256 public emergencyFee = 8;
     uint256 public totalStakers;
+    uint256 public totalLockedAmount;
     mapping(address => uint256) public stakersOf;
     mapping(address => Deposit[]) public depositsOf;
 
@@ -62,6 +63,7 @@ contract TimeLockPool is BasePool, ReentrancyGuard {
         }
 
         stakersOf[_receiver] = stakersOf[_receiver] + _amount;
+        totalLockedAmount = totalLockedAmount + _amount;
 
         uint256 mintAmount = _amount * getMultiplier(duration) / 1e18;
 
@@ -86,8 +88,10 @@ contract TimeLockPool is BasePool, ReentrancyGuard {
         // remove Deposit
         depositsOf[_msgSender()][_depositId] = depositsOf[_msgSender()][depositsOf[_msgSender()].length - 1];
         depositsOf[_msgSender()].pop();
-
+        
+        totalLockedAmount = totalLockedAmount - userDeposit.amount;
         stakersOf[_receiver] = stakersOf[_receiver] - userDeposit.amount;
+        
         if (stakersOf[_receiver] == 0){
             totalStakers = totalStakers - 1;
         }
