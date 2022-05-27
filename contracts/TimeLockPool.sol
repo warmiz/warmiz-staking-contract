@@ -38,6 +38,7 @@ contract TimeLockPool is BasePool, ReentrancyGuard {
         maxBonus = _maxBonus;
         maxLockDuration = _maxLockDuration;
         totalStakers = 0;
+        totalLockedAmount = 0;
     }
 
     event Deposited(uint256 amount, uint256 duration, address indexed receiver, address indexed from);
