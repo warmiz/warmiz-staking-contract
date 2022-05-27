@@ -111,8 +111,8 @@ module.exports = function (deployer, network, accounts) {
       "SWARMIZ",                                        // Token Symbol
       // "0x4E7442132eBCA4a6e1Ab15764082B3CBB384DE93",  // Testnet
       // "0x4E7442132eBCA4a6e1Ab15764082B3CBB384DE93",  // Testnet
-      "0x77CC2b39BB859690208e64F4f3953f96B350A6FB",     // Deposit Token
-      "0x77CC2b39BB859690208e64F4f3953f96B350A6FB",     // Reward Token
+      "0x9C8f9bdb032c0129Da74458a9C5CE93329973876",     // Deposit Token
+      "0x9C8f9bdb032c0129Da74458a9C5CE93329973876",     // Reward Token
       "1000000000000000000",                            // Max Bonus
       "31536000",
       opts
